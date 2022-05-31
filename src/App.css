@@ -1,38 +1,187 @@
-.App {
-  text-align: center;
+/* BALANCE */
+.balance {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--p-red);
+  padding: 1.25rem 2rem;
+  margin-bottom: 1rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.balance-amount {
+  display: grid;
+  color: var(--n-paleorange);
+  font-size: 1.75rem;
+  font-weight: 700;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.balance-amount h3 {
+  font-size: 0.9rem;
+  font-weight: 400;
+  opacity: 0.8;
+  margin-bottom: 0.25rem;
+}
+
+.balance > img {
+  height: 2.5rem;
+}
+
+@media (max-width: 32rem) {
+  .balance {
+    padding: 1.25rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* SPENDING */
+.spending {
+  background-color: var(--n-paleorange);
+  padding: 1.25rem 2rem;
+}
+
+.spending h1 {
+  margin-bottom: 3.5rem;
+  font-size: 1.6rem;
+  color: var(--n-darkbrown);
+}
+
+.spending-charts {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 10rem;
+}
+
+.bar {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: flex-end;
+  text-align: center;
+  width: 2.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+.bar-chart {
+  position: relative;
+  background-color: var(--p-red);
+  border-radius: 0.25rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.bar-chart:hover {
+  background-color: var(--p-red-hover);
+  cursor: pointer;
+}
+
+.bar-amount {
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--n-darkbrown);
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+  color: var(--n-paleorange);
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.bar-chart:hover > .bar-amount {
+  opacity: 1;
+}
+
+.active {
+  background-color: var(--p-cyan);
+}
+
+.active:hover {
+  background-color: var(--p-cyan-hover);
+}
+
+.bar-text {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--n-mediumbrown);
+}
+
+@media (max-width: 32rem) {
+  .spending {
+    background-color: var(--n-paleorange);
+    padding: 1.25rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .spending h1 {
+    font-size: 1.25rem;
   }
+
+  .spending-charts {
+    gap: 0.75rem;
+  }
+
+  .bar {
+    width: 2rem;
+  }
+}
+
+/* SPENDING TOTAL */
+.spending-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--n-mediumbrown);
+}
+
+.spending-total > div {
+  display: grid;
+}
+
+.spending-total-this > span {
+  color: var(--n-darkbrown);
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.spending-total-last {
+  align-self: end;
+  text-align: right;
+}
+
+.spending-total-last > span {
+  color: var(--n-darkbrown);
+  font-weight: 700;
+}
+
+@media (max-width: 32rem) {
+  .spending-total-this > span {
+    font-size: 1.75rem;
+  }
+}
+
+/* FOOTER */
+footer {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--n-mediumbrown);
+}
+
+footer > a {
+  color: var(--p-red);
+  text-decoration: none;
+}
+
+footer > a:hover {
+  text-decoration: underline;
+}
+
+/* UTILITY */
+hr {
+  margin-block: 1.75rem;
+  border: none;
+  border-top: 1px solid var(--n-mediumbrown);
+  opacity: 0.3;
+}
+
+.rounded {
+  border-radius: 1rem;
 }

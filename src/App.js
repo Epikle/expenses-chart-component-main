@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import { Fragment } from 'react';
+
+import Data from './data/data.json'; //json data
+import Balance from './components/Balance';
+import Spending from './components/Spending';
+import Footer from './components/Footer';
+
 import './App.css';
+
+const amounts = Data.map((data) => data.amount);
+const highestAmount = Math.max(...amounts);
+
+const weekday = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+
+const d = new Date();
+const day = weekday[d.getDay()];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Balance balance="921.48" />
+      <Spending
+        data={Data}
+        highestAmount={highestAmount}
+        day={day}
+        monthTotal="478.33"
+        percentage="+2.4%"
+      />
+      <Footer />
+    </Fragment>
   );
 }
 
